@@ -62,5 +62,7 @@ func main() {
 	go handleMessages()
 
 	fmt.Println("Servidor WebSocket está ouvindo na porta 8080...")
-	http.ListenAndServe(":8080", nil)
+	if err := http.ListenAndServe(":8080", nil); err != nil {
+		panic(err)
+	}
 }
