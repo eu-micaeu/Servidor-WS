@@ -16,6 +16,7 @@ var clients = make(map[*websocket.Conn]bool)
 var broadcast = make(chan Message)
 
 type Message struct {
+	Usuario   string `json:"usuario"`
 	Texto       string `json:"texto"`
 	DataDeEnvio string `json:"dataDeEnvio"`
 }
