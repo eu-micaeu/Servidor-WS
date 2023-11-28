@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"net/http"
 	"github.com/gorilla/websocket"
+	"net/http"
 )
 
 var upgrader = websocket.Upgrader{
@@ -16,8 +16,8 @@ var clients = make(map[*websocket.Conn]bool)
 var broadcast = make(chan Message)
 
 type Message struct {
-	Username string `json:"username"`
-	Content  string `json:"content"`
+	Texto       string `json:"texto"`
+	DataDeEnvio string `json:"dataDeEnvio"`
 }
 
 func handleConnections(w http.ResponseWriter, r *http.Request) {
