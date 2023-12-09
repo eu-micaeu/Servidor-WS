@@ -7,16 +7,19 @@ import (
 )
 
 var upgrader = websocket.Upgrader{
+
 	CheckOrigin: func(r *http.Request) bool {
 		return true
 	},
+
 }
 
 var clients = make(map[*websocket.Conn]bool)
+
 var broadcast = make(chan Message)
 
 type Message struct {
-	Usuario   string `json:"usuario"`
+	Nickname   string `json:"nickname"`
 	Texto       string `json:"texto"`
 	DataDeEnvio string `json:"dataDeEnvio"`
 }
